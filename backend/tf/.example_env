@@ -1,0 +1,7 @@
+export OPENAI_API_KEY="your api key (optional)"
+export BASEPFAD=""
+export PYTHONPATH="dateipfad zum sprachweg ordner"
+export KI_MODELL="modell name"
+export BIST_OLLAMA="False or True"
+
+export TF_VAR_ENV="your username"
