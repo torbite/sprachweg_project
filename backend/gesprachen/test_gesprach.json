@@ -1,0 +1,22 @@
+[
+    {
+        "typ": "system",
+        "inhalt": "Du musst ein Gespr\u00e4ch auf Deutsch f\u00fchren. Du k\u00f6nnen nicht unter allen Umst\u00e4nden andere Sprachen sprachen.\nDu bist ein Personn, auf Deutschland, also verhalten dich normal"
+    },
+    {
+        "typ": "human",
+        "inhalt": "hallo?"
+    },
+    {
+        "typ": "ai",
+        "inhalt": "Hallo! Wie kann ich dir helfen?"
+    },
+    {
+        "typ": "human",
+        "inhalt": "Ohh! Es ist richtig jetzt! Der Code dass ich erstellt habe!"
+    },
+    {
+        "typ": "ai",
+        "inhalt": "Super \u2014 freut mich zu h\u00f6ren! M\u00f6chtest du, dass ich den Code \u00fcberpr\u00fcfe oder etwas Bestimmtes damit mache? Zum Beispiel:\n\n- Fehler/Logik pr\u00fcfen\n- Optimieren oder lesbarer machen\n- Sicherheit/Performance bewerten\n- Erkl\u00e4ren, wie er funktioniert\n- In eine andere Sprache/Framework portieren\n- Tests oder Beispielinput erstellen\n\nSchick mir am besten den Code (als Codeblock), nenn die Programmiersprache und beschreibe kurz, was das Programm tun soll und ob noch ein konkretes Problem besteht oder du einfach eine Best\u00e4tigung willst. Wenn du schon etwas ge\u00e4ndert hast, sag kurz, was du angepasst hast."
+    }
+]

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deutsch Gespräch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇩🇪 Deutsch Gespräch</h1>
+            <p class="subtitle">Übe dein Deutsch mit KI</p>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h2>Gespräche</h2>
+                    <div class="conversation-controls">
+                        <input 
+                            type="text" 
+                            id="gesprach-name-input" 
+                            placeholder="Gespräch Name..."
+                            class="input-field"
+                        >
+                        <input 
+                            type="text" 
+                            id="personlichkeit-input" 
+                            placeholder="Persönlichkeit (optional)..."
+                            class="input-field"
+                        >
+                        <div class="button-group">
+                            <button id="create-btn" class="btn btn-primary">Neues Gespräch</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <div class="section-header">
+                        <h3>Alle Gespräche</h3>
+                        <button id="refresh-btn" class="btn-refresh" title="Aktualisieren">🔄</button>
+                    </div>
+                    <div id="conversations-list" class="conversations-list">
+                        <div class="loading-conversations">Lädt Gespräche...</div>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="chat-panels">
+                <main class="chat-area chat-panel-left">
+                    <div id="chat-header" class="chat-header hidden">
+                        <h2 id="chat-header-title" class="chat-header-title"></h2>
+                    </div>
+                    <div id="messages-container" class="messages-container">
+                        <div id="chat-loading-overlay" class="chat-loading-overlay hidden">
+                            <div class="chat-spinner"></div>
+                            <p>Lädt...</p>
+                        </div>
+                        <div class="welcome-message">
+                            <p>👋 Willkommen! Erstelle oder lade ein Gespräch, um zu beginnen.</p>
+                        </div>
+                    </div>
+
+                    <div class="input-area">
+                        <input 
+                            type="text" 
+                            id="message-input" 
+                            placeholder="Schreibe eine Nachricht auf Deutsch..."
+                            class="message-input"
+                            disabled
+                        >
+                        <button id="send-btn" class="btn btn-send" disabled>
+                            <span>📤</span> Senden
+                        </button>
+                    </div>
+                </main>
+
+                <main class="chat-area chat-panel-right">
+                    <div id="chat-header-2" class="chat-header hidden">
+                        <h2 id="chat-header-title-2" class="chat-header-title"></h2>
+                    </div>
+                    <div id="messages-container-2" class="messages-container">
+                        <div id="chat-loading-overlay-2" class="chat-loading-overlay hidden">
+                            <div class="chat-spinner"></div>
+                            <p>Lädt...</p>
+                        </div>
+                        <div class="welcome-message">
+                            <p>Nachrichten Erklärungen</p>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <div id="loading-overlay" class="loading-overlay hidden">
+            <div class="spinner"></div>
+            <p>Lädt...</p>
+        </div>
+
+        <div id="error-toast" class="toast error hidden">
+            <span id="error-message"></span>
+            <button class="toast-close">×</button>
+        </div>
+
+        <div id="success-toast" class="toast success hidden">
+            <span id="success-message"></span>
+            <button class="toast-close">×</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
