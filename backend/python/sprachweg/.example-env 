@@ -1,0 +1,4 @@
+export OPENAI_API_KEY="dein openai key (OPTIONAL)"
+export BASEPFAD="der dateipfad zum Code"
+export KI_MODELL="gpt oder ollama Modell"
+export BIST_OLLAMA="'True' oder 'False'"
