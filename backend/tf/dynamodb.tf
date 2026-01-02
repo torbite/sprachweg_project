@@ -5,23 +5,33 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
+    archive = {
+      source  = "hashicorp/archive"
+      version = "~> 2.4"
+    }
   }
 }
 
 # DynamoDB table for storing conversations (Gesprachen)
 resource "aws_dynamodb_table" "alle_gesprache" {
-  name           = var.table_name
-  billing_mode   = var.billing_mode
-  hash_key       = "gesprach_name"
+  name           = var.TABLE_NAME
+  billing_mode   = var.BILLING_MODE
+  hash_key       = "k"
+  range_key      = "sk"
 
   attribute {
-    name = "gesprach_name"
+    name = "k"
+    type = "S"
+  }
+
+  attribute {
+    name = "sk"
     type = "S"
   }
 
   # Enable point-in-time recovery for data protection
   point_in_time_recovery {
-    enabled = var.enable_point_in_time_recovery
+    enabled = var.ENABLE_POINT_IN_TIME_RECOVERY
   }
 
   # Enable server-side encryption
@@ -31,10 +41,10 @@ resource "aws_dynamodb_table" "alle_gesprache" {
 
   # Tags for resource management
   tags = merge(
-    var.common_tags,
+    var.COMMON_TAGS,
     {
-      Name        = var.table_name
-      Environment = var.env
+      Name        = var.TABLE_NAME
+      Environment = var.ENV
       Project     = "sprachweg"
     }
   )

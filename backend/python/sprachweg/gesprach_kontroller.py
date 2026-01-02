@@ -1,4 +1,4 @@
-import json, os, hashlib
+import json, os, hashlib, boto3, uuid
 from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage, AIMessage, FunctionMessage
 from pathlib import Path
 
@@ -7,13 +7,14 @@ BASEKONTEXT = "Du musst ein Gespräch auf Deutsch führen. Du können nicht unte
 BASEPFAD = os.getenv("BASEPFAD")
 GESPRACHEN_DATEIPFAD = f"{BASEPFAD}/backend/gesprachen"
 
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('alle_gesprache')
+
 typ_worterbuch = {
     SystemMessage("").type : SystemMessage,
     AIMessage("").type : AIMessage,
     HumanMessage("").type : HumanMessage
 }
-
-# def 
 
 def alle_gesprache_erhalten():
     global GESPRACHEN_DATEIPFAD
@@ -23,8 +24,6 @@ def alle_gesprache_erhalten():
     dateien = [p.name for p in ordner.iterdir() if p.is_file()]
 
     return dateien
-
-
 
 def gesprach_compiler(gesprach_liste):
     kompiliert_liste = []
@@ -97,7 +96,7 @@ def gesprach_speichern(gesprach_name, gesprach_inhalt):
 def gesprach_erstellen(gesprach_name, personlichkeit = None):
     global BASEKONTEXT, GESPRACHEN_DATEIPFAD
 
-    dateiname = f"{GESPRACHEN_DATEIPFAD}/{gesprach_name}.json"
+    # dateiname = f"{GESPRACHEN_DATEIPFAD}/{gesprach_name}.json"
 
     if personlichkeit:
         gesprach_kontext = f"{BASEKONTEXT}.\nPersonlity: {personlichkeit}"
@@ -110,6 +109,12 @@ def gesprach_erstellen(gesprach_name, personlichkeit = None):
     ]
 
     kompiliert_nachrichten = gesprach_compiler(gesprach_nachrichten)
+
+    id = uuid.uuid4().hex
+
+    gesprach_artikel = {
+
+    }
 
     with open(dateiname, "w") as datei:
         json.dump(kompiliert_nachrichten, datei, indent=4)
